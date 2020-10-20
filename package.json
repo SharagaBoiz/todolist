@@ -1,0 +1,29 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "TodoList Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
+  },
+  "keywords": [
+    "js",
+    "javascript"
+  ],
+  "author": "Sidelcev Dmitriy <greedline74@gmail.com>, Nikita Sharapov <>",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.20.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.3.0",
+    "html-webpack-plugin": "^4.5.0",
+    "jquery": "^3.5.1",
+    "style-loader": "^1.3.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

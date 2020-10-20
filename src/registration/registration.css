@@ -1,0 +1,54 @@
+._form-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: .5px #fff solid;
+    padding: 25px;
+    border-radius: 8px;
+    background: #fff;
+    width: 400px;
+}
+#registration-content >p, #login-content>p{
+    margin-top: 1.5em;
+    margin-bottom: .3em;
+}
+#registration-content >h1, #login-content>h1{
+    margin-bottom: 1em;
+    color: #1F3F68;
+}
+.error{
+    font-size: .8em;
+    color: red;
+}
+.registration-content__login-error, .registration-content__password-error, .registration-content__confirm_password-error, .login-content__password-error{
+    display: none;
+}
+.input_error{
+    border: 1px solid #ff000087 !important;
+}
+._form-input{
+    font-size: 13px;
+    font-weight: 400;
+    width: 100%;
+    padding: .75em 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+#registration-content__submit-registration, #login-content__submit-login{
+    margin-top: 4em !important;
+    background-color: #1F3F68;
+    color: #fff !important;
+    font-weight: 500 !important;
+    cursor: pointer;
+}
+#urlToLogin{
+    font-size: 14px;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: #1F3F68;
+    font-weight: 600;
+}
