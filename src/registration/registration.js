@@ -28,9 +28,8 @@ export async function submitSignUpForm(e) {
             .validateLogin()
             .validatePassword();
         const res = await fetchPost(formValues);
-        console.log(res);
     } catch (e) {
-        console.log(e);
+        console.log(e.response.data.message);
     }
 
 }
@@ -46,15 +45,22 @@ function resetForm() {
 }
 
 async function fetchPost({login, password, name, surname, email}) {
-    return await axios.post('https://jsonplaceholder.typicode.com/posts/', {
-        "user": {
-            "login": login,
-            "email": email,
-            "name": name,
-            "surname": surname,
-            "password": password
-        }
-    })
+    const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        data: {
+            "user": {
+                "login": login,
+                "email": email,
+                "name": name,
+                "soname": surname,
+                "password": password
+            }
+        },
+        url: 'http://vasilenko.fun:10500/api/users/signup/'
+    };
+    return axios(options);
+
 }
 
 class Validator {
