@@ -4,9 +4,8 @@ import $ from 'jquery';
 const axios = require('axios');
 // Начинаю писать комментарии, дабы потом при разборе кода не очешуеть от него.
 // Подключение функций открытия, закрытия и обработки при нажатий модальных окон. Там же в них лежит регистрация и авторизация.
-import {openModalSignUp, closeModalSignUp, submitSignUpForm} from "./registration/registration";
+import {openModalSignUp, closeModalSignUp, submitSignUpForm, showFirstRoom} from "./registration/registration";
 import {openModalSignIn, closeModalSignIn, submitSignInForm} from "./login/login";
-
 // Обработчики событий на регистрацию, авторизацию и закрытие модальных окон.
 const btnModal = document.getElementById('btn-modal-open')
 const signUp = document.getElementById('registration-content')

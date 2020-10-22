@@ -17,7 +17,7 @@ export async function submitSignInForm(e){
     const login = e.target.querySelector('#login-content__login').value;
     const password = e.target.querySelector('#login-content__password').value;
     const res = await fetchPostLogin(login,password);
-    console.log(res);
+    console.log(res.data.user.token);
 }
 
 async function fetchPostLogin(login, password){
@@ -36,5 +36,10 @@ function resetForm(){
     $('.login-content__password-error error').css('display', 'none');
 }
 
+// Первичное получение списка todo
+
+function printToDo(token){
+
+}
 
 

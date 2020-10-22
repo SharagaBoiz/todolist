@@ -1,5 +1,4 @@
 import $ from 'jquery';
-
 const axios = require('axios');
 
 export function openModalSignUp() {
@@ -28,11 +27,37 @@ export async function submitSignUpForm(e) {
             .validateLogin()
             .validatePassword();
         const res = await fetchPost(formValues);
+        console.log(res)
+        // Занос токена в localStorage, но так же я его тут просто передаю напрямую, дабы создать комнату изменив токен из localStorage не представлялось возможным.
+        let tokenUser = res.data.user.token;
+        localStorage.setItem('tokenUser', tokenUser)
+        await showFirstRoom(tokenUser);
     } catch (e) {
         console.log(e.response.data.message);
     }
-
 }
+
+// Создание и вывод комнаты после регистрации
+async function createFirstRoom(tokenUser){
+    const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json',
+        'Authorization': 'Token ' + tokenUser},
+        data: {
+            "room":{
+                "name":"Моя первая комната!"
+            }
+        },
+        url: 'http://vasilenko.fun:10500/api/rooms/create'
+    };
+    return axios(options);
+}
+
+export async function showFirstRoom(tokenUser){
+    const res = await createFirstRoom(tokenUser);
+    console.log(res.data.room.name);
+}
+
 
 // Сброс выделений на полях формы и скрытие сообщений об ошибках.
 function resetForm() {
