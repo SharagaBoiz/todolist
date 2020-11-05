@@ -21,8 +21,12 @@
     font-size: .8em;
     color: red;
 }
-.registration-content__login-error, .registration-content__password-error, .registration-content__confirm_password-error, .login-content__password-error{
+.registration-content__login-error, .registration-content__password-error, .registration-content__confirm_password-error, .login-content__password-error, .login-content__password-success{
     display: none;
+}
+.login-content__password-success{
+    color: green;
+    font-size: .8em;
 }
 .input_error{
     border: 1px solid #ff000087 !important;

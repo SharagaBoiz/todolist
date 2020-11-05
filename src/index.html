@@ -13,9 +13,20 @@
     </div>
 </header>
 <main>
-<div class="block">
-123
-</div>
+        <div class="add-todo block">
+            <form action="" id="add-todo">
+                <input type="text" placeholder="Первое дело!" id="add-todo__title" required>
+                <textarea name="add-todo__desc" id="add-todo__desc" cols="30" rows="10" placeholder="Описание задачи..."></textarea>
+                <input type="submit" value="Добавить задачу" id="add-todo__submit">
+            </form>
+        </div>
+        <div class="todoitem block">
+            <h3>Заголовок</h3>
+            <hr>
+            <div class="todoitem__desc">А вот здесь расписан очень большой и основной текст.</div>
+            <input type="checkbox" class="todoitem__complete">
+            <div class="todoitem__delete">x</div>
+        </div>
 
 </main>
 
@@ -62,6 +73,7 @@
             <input type="password" name="password" placeholder="Your password..." id="login-content__password"
                    class="_form-input" required>
             <span class="login-content__password-error error">Неверный логин или пароль.</span>
+            <span class="login-content__password-success">Авторизация успешна!</span>
             <input type="submit" name="submit-registration" value="Авторизоваться"
                    id="login-content__submit-login" class="_form-input">
         </form>

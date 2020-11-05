@@ -1,5 +1,7 @@
 import $ from 'jquery';
+
 const axios = require('axios');
+import {showTodo} from "../showTodo/showTodo";
 
 export function openModalSignUp() {
     $('#modal-sign-up').css('display', 'block');
@@ -30,32 +32,61 @@ export async function submitSignUpForm(e) {
         console.log(res)
         // Занос токена в localStorage, но так же я его тут просто передаю напрямую, дабы создать комнату изменив токен из localStorage не представлялось возможным.
         let tokenUser = res.data.user.token;
-        localStorage.setItem('tokenUser', tokenUser)
+        localStorage.setItem('tokenUser', tokenUser);
         await showFirstRoom(tokenUser);
     } catch (e) {
-        console.log(e.response.data.message);
+        console.log(e);
     }
 }
 
 // Создание и вывод комнаты после регистрации
-async function createFirstRoom(tokenUser){
-    const options = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json',
-        'Authorization': 'Token ' + tokenUser},
-        data: {
-            "room":{
-                "name":"Моя первая комната!"
-            }
-        },
-        url: 'http://vasilenko.fun:10500/api/rooms/create'
-    };
-    return axios(options);
+async function createFirstRoom(tokenUser) {
+    const token = 'Token ' + tokenUser;
+    console.log(token);
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Token ' + tokenUser
+            },
+            data: {
+                "room": {
+                    "name": "Моя первая комната!"
+                }
+            },
+            url: 'http://vasilenko.fun:10500/api/rooms/create'
+        };
+        return axios(options);
 }
 
-export async function showFirstRoom(tokenUser){
-    const res = await createFirstRoom(tokenUser);
-    console.log(res.data.room.name);
+async function showFirstRoom(tokenUser) {
+    console.log(tokenUser);
+    const resCreateFirstRoom= await createFirstRoom(tokenUser);
+    const roomId = resCreateFirstRoom.data.room._id;
+    localStorage.setItem('roomId', roomId);
+    const resCreateFirstTodoItem = await createFirstTodoItem(tokenUser, roomId);
+    console.log(resCreateFirstTodoItem);
+    await showTodo(tokenUser, roomId);
+    closeModalSignUp();
+}
+
+// Создание первичного элемента списка для ознакомления с интерфейсом
+function createFirstTodoItem(tokenUser, roomId) {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Token ' + tokenUser
+        },
+        data: {
+            "todo": {
+                "title": "Моя первая задача!",
+                "desc": "Это Ваша первая карточка для ознакомления с интерфейсом."
+            }
+        },
+        url: 'http://vasilenko.fun:10500/api/todos/' + roomId + '/todolist/add'
+    };
+    return axios(options);
 }
 
 

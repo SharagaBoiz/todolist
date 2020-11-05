@@ -6,7 +6,8 @@
     box-sizing: border-box;
     font-family: 'Roboto Mono', monospace;
 }
-._btn-modal:active, ._btn-modal:focus, ._btn-modal:hover { outline: none; cursor: pointer}
+._btn-modal:active, ._btn-modal:focus, ._btn-modal:hover, #add-todo__submit, #add-todo__submit:hover { outline: none; cursor: pointer}
+#add-todo__desc, #add-todo__desc:hover{outline: none;}
 body{
     background: #f1f1f1;
 }
@@ -70,6 +71,88 @@ header{
     background-color: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    width: 200px;
-    height: 200px;
+    padding: 1em;
+    margin: 1em 0;
+}
+.add-todo{
+    width: 300px;
+    height: 400px;
+    margin: 1em;
+}
+#add-todo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+#add-todo__title{
+    border: 0;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    padding: 5px 0px;
+    margin-bottom: 20px;
+    border-bottom: 1px gray solid;
+}
+#add-todo__desc{
+    border: none;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 260px;
+    min-height: 260px;
+}
+#add-todo__submit{
+    background: none;
+    border: 0;
+    font-size: 1em;
+    margin-top: 20px;
+    background: #1F3F68;
+    color: #fff !important;
+    font-weight: 500 !important;
+    width: 100%;
+    padding: .5em .7em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+.todoitem{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    margin: 1em;
+}
+.todoitem > hr{
+    width: 100%;
+    margin: 1em 0em;
+}
+.todoitem__mark{
+    padding: 0 .5em;
+    width: 30px;
+}
+.todoitem__desc{
+    width: 100%;
+}
+.todoitem__complete{
+    font-size: 1em;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+}
+.todoitem__delete{
+    font-size: 2em;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    cursor: pointer;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
