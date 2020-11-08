@@ -32,7 +32,7 @@
 
 # PS 
 Добавил коменты в надежде, что это облегчит понимание кода
-![Иллюстрация к проекту](https://github.com/SharagaBoiz/todolist/blob/backend/j8ufbixp.jpg)
+![Иллюстрация к проекту](https://github.com/SharagaBoiz/todolist/blob/Backend/j8ufbixp.jpg)
 
 Ссылка для запросов в постмане, её надо импортировать в самом постмане (или смотри в json формате)
 *https://www.postman.com/collections/054a335d5abe1372f123
