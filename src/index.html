@@ -6,8 +6,8 @@
 </head>
 <body>
 <header>
-    <div class="header-left"></div>
-    <div class="header-right">
+    <div id="header-left"></div>
+    <div id="header-right">
         <input type="submit" id='btn-sign-in' value="Sign In" class="_btn-modal">
         <input type="submit" id='btn-sign-up' value="Sign Up" class="_btn-modal">
     </div>
@@ -15,17 +15,10 @@
 <main>
         <div class="add-todo block">
             <form action="" id="add-todo">
-                <input type="text" placeholder="Первое дело!" id="add-todo__title" required>
+                <input type="text" placeholder="Первое дело!" id="add-todo__title" maxlength="20" required>
                 <textarea name="add-todo__desc" id="add-todo__desc" cols="30" rows="10" placeholder="Описание задачи..."></textarea>
                 <input type="submit" value="Добавить задачу" id="add-todo__submit">
             </form>
-        </div>
-        <div class="todoitem block">
-            <h3>Заголовок</h3>
-            <hr>
-            <div class="todoitem__desc">А вот здесь расписан очень большой и основной текст.</div>
-            <input type="checkbox" class="todoitem__complete">
-            <div class="todoitem__delete">x</div>
         </div>
 
 </main>

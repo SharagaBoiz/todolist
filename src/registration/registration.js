@@ -32,6 +32,7 @@ export async function submitSignUpForm(e) {
         console.log(res)
         // Занос токена в localStorage, но так же я его тут просто передаю напрямую, дабы создать комнату изменив токен из localStorage не представлялось возможным.
         let tokenUser = res.data.user.token;
+        document.cookie="tokenUser="+tokenUser;
         localStorage.setItem('tokenUser', tokenUser);
         await showFirstRoom(tokenUser);
     } catch (e) {
@@ -63,6 +64,7 @@ async function showFirstRoom(tokenUser) {
     console.log(tokenUser);
     const resCreateFirstRoom= await createFirstRoom(tokenUser);
     const roomId = resCreateFirstRoom.data.room._id;
+    document.cookie="roomId="+roomId;
     localStorage.setItem('roomId', roomId);
     const resCreateFirstTodoItem = await createFirstTodoItem(tokenUser, roomId);
     console.log(resCreateFirstTodoItem);

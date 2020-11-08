@@ -63,8 +63,10 @@ header{
     padding: 10px;
     box-shadow: #8080805c 1px 1px 1px;
 }
-.header-right{
+#header-right{
     margin-right: 3em;
+    transition: .5s;
+    position: relative;
 }
 .block{
     border: 1px solid #f4f4f4;

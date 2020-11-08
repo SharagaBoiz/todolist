@@ -29,16 +29,14 @@ async function getTodoItem(tokenUser, roomId) {
 }
 
 async function printTodo(mas) {
- let i = 0;
-
 mas.forEach(item=>{
     const html = `
-<div class="todoitem block">
+        <div class="todoitem block">
             <h3>${item.title}</h3>
             <hr>
             <div class="todoitem__desc">${item.desc}</div>
             <input type="checkbox" class="todoitem__complete" value="${item.completed}">
-            <div class="todoitem__delete">x</div>
+            <div class="todoitem__delete" data-id="${item._id}">x</div>
         </div>
        `
     $("main" ).append(html);
