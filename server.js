@@ -20,7 +20,7 @@ const app = express();
 //Порт
 const PORT = process.env.PORT || 3000;
 
-// Разбираюсь с гитом
+// Разбираюсь с гитом ч2
 
 //настройки приложения
 app.use(cors({
