@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 const axios = require('axios');
 import {showTodo} from "../showTodo/showTodo";
+import {showProfile} from "../profile/showProfile";
 
 export function openModalSignUp() {
     $('#modal-sign-up').css('display', 'block');
@@ -32,9 +33,12 @@ export async function submitSignUpForm(e) {
         console.log(res)
         // Занос токена в localStorage, но так же я его тут просто передаю напрямую, дабы создать комнату изменив токен из localStorage не представлялось возможным.
         let tokenUser = res.data.user.token;
+        let login = res.data.user.login;
         document.cookie="tokenUser="+tokenUser;
         localStorage.setItem('tokenUser', tokenUser);
+        localStorage.setItem('login', login);
         await showFirstRoom(tokenUser);
+        showProfile(login);
     } catch (e) {
         console.log(e);
     }
@@ -144,7 +148,7 @@ class Validator {
             $('#registration-content__password').addClass('input_error');
             throw new Error('Слишком короткий пароль')
         }
-        if (this.values.confirm_password != this.values.password) {
+        if (this.values.confirm_password !== this.values.password) {
             $('.registration-content__confirm_password-error').css('display', 'block');
             $('#registration-content__confirm-password').addClass('input_error');
             throw new Error('Пароли не совпадают.')

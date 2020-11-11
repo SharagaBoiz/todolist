@@ -11,8 +11,10 @@ export function showProfile(login) {
         <div class="profile__invite">+</div>
     </div>
     <ul id="menu">
-        <li id="menu_add-user" class="_menu-item">Пригласить в комнату</li>
-        <li id="menu__quit" class="_menu-item">Выход</li>
+        <li id="menu__create-room" class="_menu-item">Создать новую комнату</li>
+        <li id="menu__invite-user" class="_menu-item">Пригласить в комнату</li>
+        <li id="menu__change-rom" class="_menu-item">Сменить комнату</li>
+        <li id="menu__logout" class="_menu-item">Выход</li>
     </ul>
     `
     const profile = document.getElementById("header-right");
@@ -22,6 +24,7 @@ export function showProfile(login) {
 // Функция показа меню.
 export function showMenu() {
     let display = $('#menu').css('display');
+    console.log('123')
     if (display === 'block') {
         $('#menu').hide();
     } else {
@@ -38,6 +41,7 @@ export function outsideMenuClick() {
 
     function outsideEvtListener(evt) {
         if (evt.target === el || el.contains(evt.target) || (evt.target === profile) || profile.contains(evt.target)) {
+
             return;
         }
         if ($('#menu').css('display') === 'block') $('#menu').hide();

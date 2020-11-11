@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+import {deleteTodo} from "../deleteTodo/deleteTodo";
+
 const axios = require('axios');
 
 export async function showTodo(tokenUser, roomId) {
@@ -9,6 +11,16 @@ export async function showTodo(tokenUser, roomId) {
     let mas = resGetTodoItem.data.todolist;
     await printTodo(mas);
     console.log(mas);
+    setDataId();
+}
+
+function setDataId(){
+    $(document).ready(async () => {
+        const deleteTodoItem = document.getElementsByClassName('todoitem__delete');
+        for (let i = 0; i < deleteTodoItem.length; i++) {
+            deleteTodoItem[i].addEventListener('click', (e) => deleteTodo(e))
+        }
+    });
 }
 
 function deleteTodoItem(){
