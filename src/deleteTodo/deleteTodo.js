@@ -1,11 +1,9 @@
 import {showTodo} from "../showTodo/showTodo";
 
 const axios = require('axios');
-let anime = 0;
 
 // Функция удаления Todo по клику.
 export async function deleteTodo(e){
-    console.log(anime);
     const todoId = e.target.getAttribute('data-id');
     console.log(e.target.getAttribute('data-id'));
     const tokenUser = localStorage.getItem('tokenUser');
@@ -18,10 +16,8 @@ export async function deleteTodo(e){
         console.log(e);
     }
     const resShowTodo = await showTodo(tokenUser,roomId);
-
 }
 
-// Вот тут сейчас падает запрос из-за того, что на коре он не разрешен.
 async function fetchDeleteTodo(tokenUser, todoId){
     const options = {
         method: 'DELETE',

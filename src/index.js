@@ -50,6 +50,8 @@ export function userIsTrue() {
     const profile = document.getElementById('profile');
     profile.addEventListener('click', showMenu);
     document.addEventListener('click', outsideMenuClick);
+    const logoutBtn = document.getElementById('menu__logout');
+    logoutBtn.addEventListener('click', logout);
 }
 
 // Функция на отображение, если по запросам ошибка.
@@ -57,9 +59,7 @@ function userIsFalse() {
     console.log('Fail')
 }
 
-// $('#menu__logout').click(() => {
-//     logout();
-// })
+
 
 
 

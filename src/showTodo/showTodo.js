@@ -17,6 +17,7 @@ export async function showTodo(tokenUser, roomId) {
 function setDataId(){
     $(document).ready(async () => {
         const deleteTodoItem = document.getElementsByClassName('todoitem__delete');
+        // Переписать на foreach
         for (let i = 0; i < deleteTodoItem.length; i++) {
             deleteTodoItem[i].addEventListener('click', (e) => deleteTodo(e))
         }
