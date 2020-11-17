@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import {outsideMenuClick} from "../profile/showProfile";
 
 export function logout() {
     const html = `
@@ -8,5 +9,6 @@ export function logout() {
     const profile = document.getElementById("header-right");
     profile.innerHTML = html;
     console.log('logOut function;')
-
+    localStorage.clear();
+    document.removeEventListener('click', outsideMenuClick);
 }

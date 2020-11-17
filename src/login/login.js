@@ -2,6 +2,7 @@ import $ from 'jquery';
 import {showTodo} from "../showTodo/showTodo";
 import {showProfile} from "../profile/showProfile";
 import {userIsTrue} from "../index";
+import {closeModalSignUp, openModalSignUp, submitSignUpForm} from "../registration/registration";
 const axios = require('axios');
 
 // Модальные окна и их появление/закрытие.
@@ -14,6 +15,27 @@ export function closeModalSignIn() {
     $('.modal-fade').fadeOut(500);
 }
 
+
+// Обработчик событий на кнопки.
+
+export function loginIsFalse(){
+    const signUp = document.getElementById('registration-content')
+    const signIn = document.getElementById('login-content')
+    signUp.addEventListener('submit', submitSignUpForm)
+    signIn.addEventListener('submit', submitSignInForm)
+    $('#registration-content__close-modal').click(function () {
+        closeModalSignUp()
+    });
+    $('#login-content__close-modal').click(function () {
+        closeModalSignIn()
+    });
+    $('#btn-sign-up').click(function () {
+        openModalSignUp()
+    });
+    $('#btn-sign-in').click(function () {
+        openModalSignIn()
+    });
+}
 
 // Проверка на то, был ли залогинен пользователь ранее.
 
