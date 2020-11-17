@@ -71,7 +71,6 @@ export async function submitSignInForm(e){
     const password = e.target.querySelector('#login-content__password').value;
     try{
         const res = await fetchPostLogin(login,password);
-        $('.login-content__password-success').css('display', 'block');
         console.log(res.data.user);
         let tokenUser = res.data.user.token
         document.cookie="login="+login;
@@ -82,8 +81,9 @@ export async function submitSignInForm(e){
         const roomId = allRoomId.data.roomlist[0]._id;
         console.log(allRoomId);
         const resShowTodo = await showTodo(tokenUser, roomId);
-        userIsTrue();
+        await checkLogin();
         setTimeout(()=>closeModalSignIn(), 500);
+        $('.login-content__password-success').css('display', 'block');
     }
     catch(e){
         $('.login-content__password-error').css('display', 'block');
