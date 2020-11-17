@@ -15,11 +15,7 @@ import {addTodo} from "./addTodo/addTodo";
 
 
 
-const addTodoItem = document.getElementById('add-todo')
 
-
-
-addTodoItem.addEventListener('submit', addTodo)
 
 
 
@@ -40,6 +36,8 @@ export function userIsTrue() {
     document.addEventListener('click', outsideMenuClick);
     const logoutBtn = document.getElementById('menu__logout');
     logoutBtn.addEventListener('click', ()=>{logout(); loginIsFalse()});
+    const addTodoItem = document.getElementById('add-todo')
+    addTodoItem.addEventListener('submit', addTodo)
 }
 
 // Функция на отображение, если по запросам ошибка.
