@@ -16,6 +16,7 @@ module.exports = {
     },
     plugins: [
         new HTMLPlugin({template: './src/index.html',}),
+        new HTMLPlugin({filename: 'profile.html', template: './src/profile/profile.html',}),
         new CleanWebpackPlugin(),
     ],
     module: {
