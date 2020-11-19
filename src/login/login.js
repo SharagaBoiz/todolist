@@ -51,6 +51,7 @@ export async function checkLogin(){
             localStorage.setItem('roomId', roomId);
             const resShowTodo = await showTodo(tokenUser, roomId);
             showProfile(localStorage.getItem('login'));
+            userIsTrue();
             return true;
         }
         catch (e){
